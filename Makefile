@@ -3,8 +3,8 @@ ALL: build
 .PHONY: build test push
 
 PARENT_IMAGE := php
-IMAGE := chialab/php
-VERSION ?= latest
+IMAGE := cpxpratik/php
+VERSION ?= 8.1-bullseye
 PHP_VERSION = $(firstword $(subst -, ,$(VERSION)))
 
 # Extensions.
