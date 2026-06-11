@@ -66,12 +66,3 @@ RUN cd /opt \
   && rm /opt/composer-setup.php /opt/composer-setup.sha384sum
 
 RUN apt-get update && apt-get install -y gnupg wget mariadb-client
-
-# Install Mongodb CLI client to populate database between tests
-RUN wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | apt-key add - \
-    && echo "deb http://repo.mongodb.org/apt/debian bullseye/mongodb-org/5.0 main" | tee /etc/apt/sources.list.d/mongodb-org-5.0.list \
-    && apt-get update && apt-get install -y mongodb-org-shell
-
-
-# Install required php extensions
-RUN pecl install mongodb-1.19.0 && docker-php-ext-enable mongodb
