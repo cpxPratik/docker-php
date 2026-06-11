@@ -163,15 +163,15 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           platforms: linux/amd64,linux/arm64
-          cache-from: type=registry,ref=chialab/php:${{ matrix.version }}${{ matrix.flavor }}
+          cache-from: type=registry,ref=cpxpratik/php:${{ matrix.version }}${{ matrix.flavor }}
           cache-to: type=inline
           context: .
           file: ${{ ((contains(matrix.flavor, 'alpine') || matrix.version == 'alpine') && 'Dockerfile.alpine') || 'Dockerfile' }}
           build-args: |
             BASE_IMAGE=php:${{ matrix.version }}${{ matrix.flavor }}
           tags: |
-            chialab/php:${{ matrix.version }}${{ matrix.flavor }}
-            ghcr.io/chialab/php:${{ matrix.version }}${{ matrix.flavor }}
+            cpxpratik/php:${{ matrix.version }}${{ matrix.flavor }}
+            ghcr.io/cpxpratik/php:${{ matrix.version }}${{ matrix.flavor }}
           push: true
 
       - name: Build dev image and push to registry
@@ -181,10 +181,10 @@ jobs:
           cache-to: type=inline
           context: ./dev
           build-args: |
-            BASE_IMAGE=ghcr.io/chialab/php:${{ matrix.version }}${{ matrix.flavor }}
+            BASE_IMAGE=ghcr.io/cpxpratik/php:${{ matrix.version }}${{ matrix.flavor }}
           tags: |
-            chialab/php-dev:${{ matrix.version }}${{ matrix.flavor }}
-            ghcr.io/chialab/php-dev:${{ matrix.version }}${{ matrix.flavor }}
+            cpxpratik/php-dev:${{ matrix.version }}${{ matrix.flavor }}
+            ghcr.io/cpxpratik/php-dev:${{ matrix.version }}${{ matrix.flavor }}
           push: true
 
       - name: Build PCOV image and push to registry
@@ -195,10 +195,10 @@ jobs:
           cache-to: type=inline
           context: ./pcov
           build-args: |
-            BASE_IMAGE=ghcr.io/chialab/php:${{ matrix.version }}${{ matrix.flavor }}
+            BASE_IMAGE=ghcr.io/cpxpratik/php:${{ matrix.version }}${{ matrix.flavor }}
           tags: |
-            chialab/php-pcov:${{ matrix.version }}${{ matrix.flavor }}
-            ghcr.io/chialab/php-pcov:${{ matrix.version }}${{ matrix.flavor }}
+            cpxpratik/php-pcov:${{ matrix.version }}${{ matrix.flavor }}
+            ghcr.io/cpxpratik/php-pcov:${{ matrix.version }}${{ matrix.flavor }}
           push: true
 
       - name: Build xhprof image (amd64 only) and push to registry
@@ -207,8 +207,8 @@ jobs:
           cache-to: type=inline
           context: ./xhprof
           build-args: |
-            BASE_IMAGE=ghcr.io/chialab/php:${{ matrix.version }}${{ matrix.flavor }}
+            BASE_IMAGE=ghcr.io/cpxpratik/php:${{ matrix.version }}${{ matrix.flavor }}
           tags: |
-            chialab/php-xhprof:${{ matrix.version }}${{ matrix.flavor }}
-            ghcr.io/chialab/php-xhprof:${{ matrix.version }}${{ matrix.flavor }}
+            cpxpratik/php-xhprof:${{ matrix.version }}${{ matrix.flavor }}
+            ghcr.io/cpxpratik/php-xhprof:${{ matrix.version }}${{ matrix.flavor }}
           push: true
