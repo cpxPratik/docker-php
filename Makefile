@@ -4,7 +4,7 @@ ALL: build
 
 PARENT_IMAGE := php
 IMAGE := cpxpratik/php
-VERSION ?= 8.1-bullseye
+VERSION ?= 8.4-bookworm
 POSTFIX_VERSION ?= build-tools
 PHP_VERSION = $(firstword $(subst -, ,$(VERSION)))
 
@@ -34,11 +34,11 @@ EXTENSIONS := \
 	xsl \
 	zip \
 	sockets
-ifeq (,$(findstring $(PHP_VERSION), 7.2 7.3 7.4 8.0 8.1 8.2 latest alpine))
+ifeq (,$(findstring $(PHP_VERSION), 7.2 7.3 7.4 8.0 8.1 8.2 8.3 8.4 latest alpine))
 	# Add more extensions to PHP < 7.2.
 	EXTENSIONS += mcrypt
 endif
-ifeq (,$(findstring $(PHP_VERSION), 7.0 7.1 7.2 7.3 7.4 8.0 8.1 8.2 latest alpine))
+ifeq (,$(findstring $(PHP_VERSION), 7.0 7.1 7.2 7.3 7.4 8.0 8.1 8.2 8.3 8.4 latest alpine))
 	# Add more extensions to 5.x series images.
 	EXTENSIONS += mysql
 endif
