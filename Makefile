@@ -4,7 +4,7 @@ ALL: build
 
 PARENT_IMAGE := php
 IMAGE := cpxpratik/php
-VERSION ?= 8.1-bullseye
+VERSION ?= 8.4-bookworm
 PHP_VERSION = $(firstword $(subst -, ,$(VERSION)))
 
 # Extensions.
@@ -33,11 +33,11 @@ EXTENSIONS := \
 	xsl \
 	zip \
 	sockets
-ifeq (,$(findstring $(PHP_VERSION), 7.2 7.3 7.4 8.0 8.1 8.2 latest alpine))
+ifeq (,$(findstring $(PHP_VERSION), 7.2 7.3 7.4 8.0 8.1 8.2 8.3 8.4 latest alpine))
 	# Add more extensions to PHP < 7.2.
 	EXTENSIONS += mcrypt
 endif
-ifeq (,$(findstring $(PHP_VERSION), 7.0 7.1 7.2 7.3 7.4 8.0 8.1 8.2 latest alpine))
+ifeq (,$(findstring $(PHP_VERSION), 7.0 7.1 7.2 7.3 7.4 8.0 8.1 8.2 8.3 8.4 latest alpine))
 	# Add more extensions to 5.x series images.
 	EXTENSIONS += mysql
 endif
@@ -48,7 +48,7 @@ build:
 
 test:
 	@echo -e "=====> Testing loaded extensions... \c"
-	@if [[ -z `docker image ls $(REGISTRY)$(IMAGE) | grep "\s$(VERSION)\s"` ]]; then \
+	@if ! docker image inspect $(REGISTRY)$(IMAGE):$(VERSION) > /dev/null 2>&1; then \
 		echo 'FAIL [Missing image!!!]'; \
 		exit 1; \
 	fi

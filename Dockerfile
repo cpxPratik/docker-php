@@ -64,3 +64,5 @@ RUN cd /opt \
   && php composer-setup.php --install-dir=/usr/local/bin --filename=composer --2 \
   # Remove installer files.
   && rm /opt/composer-setup.php /opt/composer-setup.sha384sum
+
+RUN apt-get update && apt-get install -y gnupg wget mariadb-client
