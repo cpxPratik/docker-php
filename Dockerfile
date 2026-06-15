@@ -51,7 +51,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -q \
       7.0.*|7.1.*) PHP_EXTENSIONS="$PHP_EXTENSIONS mcrypt";; \
     esac \
     && install-php-extensions $PHP_EXTENSIONS \
-    && if command -v a2enmod; then a2enmod rewrite; fi
+    && if command -v a2enmod; then a2enmod rewrite; fi \
+    && echo "register_argc_argv = On" > "$PHP_INI_DIR/php-cli.ini"
 
 # Install Composer.
 ENV PATH=$PATH:/root/composer/vendor/bin \
