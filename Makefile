@@ -4,7 +4,7 @@ ALL: build
 
 PARENT_IMAGE := php
 IMAGE := cpxpratik/php
-VERSION ?= 8.4-bookworm
+VERSION ?= 8.5
 PHP_VERSION = $(firstword $(subst -, ,$(VERSION)))
 
 # Extensions.
@@ -46,7 +46,7 @@ endif
 
 build:
 	@echo " =====> Building $(REGISTRY)$(IMAGE):$(VERSION)..."
-	docker image build --quiet --build-arg 'BASE_IMAGE=$(PARENT_IMAGE):$(VERSION)' -t $(REGISTRY)$(IMAGE):$(VERSION) .
+	docker image build --build-arg 'BASE_IMAGE=$(PARENT_IMAGE):$(VERSION)' -t $(REGISTRY)$(IMAGE):$(VERSION) .
 
 test:
 	@echo -e "=====> Testing loaded extensions... \c"
