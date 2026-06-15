@@ -18,7 +18,7 @@
 
 ---
 
-Note: The docker image is specifically built to be based upon Debian 11 "bullseye".
+Note: Images for PHP 8.4+ are based on Debian 12 "bookworm". Earlier images are based on Debian 11 "bullseye".
 
 Docker images built on top of the [official PHP images](https://hub.docker.com/r/_/php/) with the addition of some common and useful extensions, installed with [mlocati/docker-php-extension-installer](https://github.com/mlocati/docker-php-extension-installer). You can find these images on the [Docker Hub](https://hub.docker.com/r/chialab/php/) (and if you're reading this file, you're probably already there).
 
@@ -55,6 +55,21 @@ For development environments, you might want to choose an [image with XDebug ins
 - `8.2`
 - `8.2-apache`
 - `8.2-fpm`
+- `8.3`
+- `8.3-apache`
+- `8.3-fpm`
+- `8.3-alpine`
+- `8.3-fpm-alpine`
+- `8.4`
+- `8.4-apache`
+- `8.4-fpm`
+- `8.4-alpine`
+- `8.4-fpm-alpine`
+- `8.5`
+- `8.5-apache`
+- `8.5-fpm`
+- `8.5-alpine`
+- `8.5-fpm-alpine`
 
 As you might have guessed, all tags are built on top of the corresponding tag of the official image. Not all tags are supported in order to easen maintenance.
 
@@ -79,9 +94,11 @@ in addition to those you can already find in the [official PHP image](https://hu
 - `memcached`
 - `mysql` (_only PHP 5.x_)
 - `mysqli`
+- `pcntl`
 - `pdo_mysql`
 - `pdo_pgsql`
 - `pgsql`
+- `posix`
 - `redis`
 - `soap`
 - `sockets`
