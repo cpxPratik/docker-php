@@ -36,8 +36,10 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -q \
       mysqli \
       opcache \
       pdo_mysql \
+      pcntl \
       pdo_pgsql \
       pgsql \
+      posix \
       redis \
       soap \
       sockets \

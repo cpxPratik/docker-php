@@ -27,8 +27,10 @@ EXTENSIONS := \
 	OPcache \
 	pcov \
 	pdo_mysql \
+	pcntl \
 	pdo_pgsql \
 	pgsql \
+	posix \
 	redis \
 	soap \
 	xsl \

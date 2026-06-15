@@ -28,8 +28,10 @@ RUN apk add --no-cache \
       mysqli \
       opcache \
       pdo_mysql \
+      pcntl \
       pdo_pgsql \
       pgsql \
+      posix \
       redis \
       soap \
       sockets \

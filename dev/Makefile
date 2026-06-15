@@ -26,8 +26,10 @@ EXTENSIONS := \
 	mysqli \
 	OPcache \
 	pdo_mysql \
+	pcntl \
 	pdo_pgsql \
 	pgsql \
+	posix \
 	redis \
 	soap \
 	Xdebug \

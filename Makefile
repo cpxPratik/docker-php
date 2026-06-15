@@ -25,9 +25,11 @@ EXTENSIONS := \
 	memcached \
 	mysqli \
 	OPcache \
+	pcntl \
 	pdo_mysql \
 	pdo_pgsql \
 	pgsql \
+	posix \
 	redis \
 	soap \
 	xsl \
